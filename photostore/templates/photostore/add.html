@@ -1,0 +1,56 @@
+{% extends 'photostore/base.html' %}
+
+{% block content %}
+
+<style>
+    body{
+        background-color: rgb(85, 185, 189);
+    }
+</style>
+<div class="row justify-content-center">
+    <div class="col-md-4">
+        <a href="{% url 'home' %}" class="my-3 btn btn-dark btn-sm">Go Back</a>
+        <div class="card shadow-lg">
+            <div class="card-body">
+                <!-- the form for adding a book -->
+                <form method="POST" enctype="multipart/form-data" action="">
+                    <!-- this is for securing the form from malicious attacks -->
+                    {% csrf_token %}
+                    <!-- this is the label and input for the Title -->
+                    <div class="mb-3">
+                        <label class="form-label font-weight-bold">Photo Title</label>
+                        <input type="text" name="title" class="form-control" placeholder="Enter Photo Title">
+                    </div>
+                    <!-- this is the label and input for the Author -->
+                    <div class="mb-3">
+                        <label class="form-label font-weight-bold">Continent</label>
+                        <input type="text" name="continent" class="form-control" placeholder="Enter Photo Continent">
+                    </div>
+                    <!-- this is the label and input for the Author -->
+                    <div class="mb-3">
+                        <label class="form-label font-weight-bold">Country</label>
+                        <input type="text" name="country" class="form-control" placeholder="Enter Photo Country">
+                    </div>
+                    <!-- this is the label and input for the Price -->
+                    <div class="mb-3">
+                        <label class="form-label font-weight-bold">Price</label>
+                        <input type="text" name="price" class="form-control" placeholder="Enter Photo Price">
+                    </div>
+                    <!-- this is the label and input for the ISBN -->
+                    <div class="mb-3">
+                        <label class="form-label font-weight-bold">ImageID</label>
+                        <input type="text" name="imageID" class="form-control" placeholder="Enter Photo ImageID">
+                    </div>
+                    <!-- this is the label and input for the Image -->
+                    <div class="mb-3">
+                        <label class="form-label font-weight-bold">Upload Image:</label>
+                        <input type="file" name="image-file" class="form-control" id="customFile" />
+                    </div>
+                    <!-- Submit button -->
+                    <button type="submit" class="btn btn-success btn-block mb-4">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

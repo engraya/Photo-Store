@@ -1,0 +1,28 @@
+{% extends 'photostore/base.html' %}
+<!-- loads images -->
+{% load static %}
+
+{% block content %}
+<style>
+    body{
+        background-color: rgb(187, 219, 219);
+    }
+</style>
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+            <div class="">
+                <a href="{% url 'home' %}" class="my-3 btn btn-dark btn-sm">Go Back</a>
+            </div>
+            <div style="height: 90vh">
+                <img class="img-fluid text-center" style="max-width: 100%; max-height: 100%" src="{{ captions.image.url }}" alt="">
+                <h5 class="text-muted">TITLE: {{ captions.title }}</h5>
+                <small>CONTINENT: {{ captions.continent }}</small><br>
+                <small>COUNTRY: {{ captions.country }}</small><br>
+                <small>ImageID: {{ captions.imageID }}</small><br>
+                <small>Price: ${{ captions.price }}</small><br>
+                <a href="{% url 'update' captions.id %}" class="btn btn-success btn-sm">Edit</a>
+                <a href="{% url 'delete' captions.id %}" class="btn btn-danger btn-sm">Delete</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
